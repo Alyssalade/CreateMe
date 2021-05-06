@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idée :</strong>
+  <%= @dear_me.name %>
+</p>
+
+<%= link_to 'Editer', edit_dear_me_path(@dear_me), class: "btn btn-secondary" %> |
+<%= link_to 'Retour', dear_mes_path, class: "btn btn-secondary" %>

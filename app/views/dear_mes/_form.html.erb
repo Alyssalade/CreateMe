@@ -1,0 +1,32 @@
+<% if user_signed_in? %>
+
+
+  <%= form_with(model: dear_me) do |form| %>
+    <% if dear_me.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(dear_me.errors.count, "error") %> prohibited this dear_me from being saved:</h2>
+
+        <ul>
+          <% dear_me.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :Idée %>
+      <%= form.text_area :name %>
+    </div>
+
+    <div class="actions">
+      <input type="submit" name="commit" value="Créer mon idée" class="btn btn-success" />
+    </div>
+  <% end %>
+
+<% else %>
+  <p> Vous devez vous connecter pour écrire une idée </p>
+  <%= link_to 'Inscris-toi !', new_user_registration_path, class: "btn btn-secondary" %>
+  <%= link_to 'Connecte-toi !', new_user_session_path, class: "btn btn-secondary" %>
+
+<% end %>
