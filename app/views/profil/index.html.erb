@@ -1,0 +1,20 @@
+   
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+  <main class="px-3">
+    <h1>Bienvenue sur Create Me</h1>
+    <p class="lead">Bonjour à toi, jeune artiste. Ici tu peux stocker toutes tes idées de projets ! Un dessin ? Une histoire ? Une maquette ? <br> 
+Laisse ton imagination prendre le dessus et note tes idées dans cette application. Ainsi, le jour où tu auras le syndrôme de la page blanche, tu pourras nous rendre visite !</p>
+  </main>
+
+</div>
+
+<% @dear_mes.each do |dear_me| %>
+      <tr>
+        <td><%= dear_me.name %></td>
+        
+        <td><%= link_to 'Voir mon idée', dear_me, class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Editer mon idée', edit_dear_me_path(dear_me), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Supprimer mon idée', dear_me, class: "btn btn-danger", method: :delete, data: { confirm: 'Etes-vous sûr de votre choix ?' } %></td>
+      </tr>
+<% end if @dear_mes %>

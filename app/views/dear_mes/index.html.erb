@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nouvelle Idée</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tes idées :</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dear_mes.each do |dear_me| %>
+      <tr>
+        <td><%= dear_me.name %></td>
+        
+        <td><%= link_to 'Voir mon idée', dear_me, class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Editer mon idée', edit_dear_me_path(dear_me), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Supprimer mon idée', dear_me, class: "btn btn-danger", method: :delete, data: { confirm: 'Etes-vous sûr de votre choix ?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Ecrire mon idée', new_dear_me_path, class: "btn btn-success" %>
